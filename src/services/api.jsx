@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://react-django-blog-backend-3.onrender.com/api",
+  baseURL: "https://react-django-blog-backend.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
