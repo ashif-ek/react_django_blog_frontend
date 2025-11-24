@@ -1,8 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Global styles */
-body {
-  @apply bg-slate-950 text-slate-100 font-sans;
-}
+@import "tailwindcss";
