@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../services/api";
 
 export default function Header() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     logout();
-    window.location.href = "/login";
+    navigate("/login", { replace: true });
   };
 
   const isLoggedIn = Boolean(localStorage.getItem("accessToken"));

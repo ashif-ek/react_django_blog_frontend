@@ -25,9 +25,10 @@ export default function PostsPage() {
 
   const handleDelete = async (slug) => {
     await deletePost(slug);
-    selected.setData(null);
+    selected.setData(null); // now valid
     posts.run();
   };
+
 
   return (
     <div className="space-y-6">

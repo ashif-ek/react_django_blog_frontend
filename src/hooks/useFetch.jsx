@@ -14,10 +14,12 @@ export function useFetch(asyncFn) {
       return result;
     } catch (err) {
       setError("Something went wrong");
+      // rethrow so callers can also handle it if they want
+      throw err;
     } finally {
       setLoading(false);
     }
   };
 
-  return { data, run, loading, error };
+  return { data, setData, run, loading, error };
 }
