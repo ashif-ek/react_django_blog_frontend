@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Change this to your deployed backend URL in production
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = "https://react-django-blog-backend-4.onrender.com/api";
 
 export const api = axios.create({
   baseURL: API_URL,
