@@ -9,17 +9,17 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8">
-      <div className="relative">
+    <form onSubmit={handleSubmit} className="mb-0">
+      <div className="relative group">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search articles..."
-          className="w-full bg-slate-800 text-slate-100 border border-slate-700 rounded-lg py-3 px-4 pl-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder:text-slate-500"
+          className="w-full bg-transparent border-b border-gray-200 py-3 pl-8 pr-4 text-gray-900 focus:outline-none focus:border-black transition-colors placeholder:text-gray-400 font-sans"
         />
         <svg
-          className="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2"
+          className="w-4 h-4 text-gray-400 absolute left-0 top-1/2 -translate-y-1/2 transition-colors group-focus-within:text-black"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -31,12 +31,6 @@ export default function SearchBar({ onSearch }) {
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
-        <button
-          type="submit"
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1.5 rounded-md text-sm font-medium transition-colors"
-        >
-          Search
-        </button>
       </div>
     </form>
   );
