@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// Change this to your deployed backend URL in production
+const API_URL = "http://127.0.0.1:8000/api";
+
 export const api = axios.create({
-  baseURL: "https://react-django-blog-backend.onrender.com/api",
+  baseURL: API_URL,
   headers: {
     "Content-Type": "application/json",
   },
@@ -32,7 +35,7 @@ api.interceptors.response.use(
 
       try {
         const res = await axios.post(
-          "https://react-django-blog-backend-3.onrender.com/api/token/refresh/",
+          `${API_URL}/token/refresh/`,
           { refresh: refreshToken }
         );
 
@@ -44,6 +47,7 @@ api.interceptors.response.use(
         // refresh failed -> clear tokens
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
+        window.location.href = "/login"; // Force redirect to login
         return Promise.reject(refreshError);
       }
     }
