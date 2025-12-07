@@ -5,6 +5,7 @@ import { useFetch } from "../../../hooks/useFetch";
 import PostList from "../components/PostList";
 import PostDetail from "../components/PostDetail";
 import PostForm from "../components/PostForm";
+import SearchBar from "../../../components/SearchBar";
 
 export default function PostsPage() {
   const posts = useFetch(fetchPosts);
@@ -27,6 +28,10 @@ export default function PostsPage() {
     await deletePost(slug);
     selected.setData(null); // now valid
     posts.run();
+  };
+
+  const handleSearch = (query) => {
+    posts.run(query);
   };
 
 
@@ -72,6 +77,8 @@ export default function PostsPage() {
                 <span className="text-[11px] text-slate-500">Loading…</span>
               )}
             </div>
+
+            <SearchBar onSearch={handleSearch} />
 
             {posts.error && (
               <p className="mb-2 text-xs text-red-400">
